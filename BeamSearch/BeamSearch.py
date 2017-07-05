@@ -15,7 +15,7 @@
 # This is an implementation of the Beam Search Algorithm, using the test data from figure 4.2 in the class notes.
 
 
-import queue
+import Queue
 import copy
 from collections import deque
 
@@ -68,7 +68,7 @@ def sort(q,gq):
     global iterator
     goalNode = "G"
     
-    q2 = queue.Queue()
+    q2 = Queue.Queue()
     l = list(q.queue)
 
     l.sort(key=lambda x:x.weight)
@@ -95,7 +95,7 @@ def sort(q,gq):
     
     if(q.qsize()>=2):
         for i in range (0,2):
-            print("Chose ", l[i])
+            print("Chose ", l[i].cargo)
             q2.put(l[i])
     print("---------------------------------------")
     return q2
@@ -110,7 +110,7 @@ def beam_search(q):
     print("---------------------------------------")
     t = make_tree()    
     goalNode = "G"
-    goalQueue = queue.Queue()
+    goalQueue = Queue.Queue()
 
     #Enter root into a queue
     q.put(t)
@@ -159,7 +159,7 @@ def beam_search(q):
 # Main runtime
 def main():
 
-    q = queue.Queue()
+    q = Queue.Queue()
     beam_search(q)
 
 main()
